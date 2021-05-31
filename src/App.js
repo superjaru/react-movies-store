@@ -58,10 +58,11 @@ export default () => {
       vote_count: 0,
     },
   ]);
+  const [searchBtn , setSearchBtn] = useState('false')
   return (
-    <div>
-      {console.log(movies)}
-      <SearchBar onSearch={SetMovies} />
+    <div style={{backgroundColor : 'rgb(25, 25, 25)'}}>
+      {searchBtn ? <SearchBar onSearch={SetMovies} setSearchBtn={setSearchBtn} searchBtn={searchBtn} /> : null}
+      
       <MoviesList movies={movies} />
     </div>
   );
