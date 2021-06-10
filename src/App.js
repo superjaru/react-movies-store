@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { SearchBar } from "./components/SearchBar";
+import { Navbar } from "./screen/Navbar";
 import { MoviesList } from "./components/MoviesList";
+import { FavMovie } from "./components/FavMovie";
 export default () => {
   const [movies, SetMovies] = useState([
     {
@@ -58,12 +59,16 @@ export default () => {
       vote_count: 0,
     },
   ]);
-  const [searchBtn , setSearchBtn] = useState('false')
+  const [searchBtn , setSearchBtn] = useState('false');
+  const [FavBtn , setFavBtn] = useState('false')
   return (
     <div style={{backgroundColor : 'rgb(25, 25, 25)'}}>
-      {searchBtn ? <SearchBar onSearch={SetMovies} setSearchBtn={setSearchBtn} searchBtn={searchBtn} /> : null}
+
+     <Navbar onSearch={SetMovies} setSearchBtn={setSearchBtn} searchBtn={searchBtn} /> 
       
-      <MoviesList movies={movies} />
+     
+      <MoviesList movies={movies} /> 
     </div>
   );
+  
 };
